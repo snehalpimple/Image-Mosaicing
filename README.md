@@ -1,12 +1,37 @@
 # Image-Mosaicing
 
+## Description 
+This project generates an image mosaic/ panorama from images. The following are the sequence of steps of the process
+
+Click pictures such that adjacent pictures have atleast 40% overlap. Order the pictures from left to right
+1. Generate SIFT features among images
+2. Establish correspondence between features
+3. Apply RANSAC (Random Sampling and Consensus) to get rid of outliers
+4. Generate initial estimate of Homography using inlier correspondence points obtained in step 4
+5. Refine the Homography estimate using Levenberg- Marquardt optimization
+6. Repeat the above steps for each of the adjacent image pairs 
+7. After obtaining Homographies for each of the picture pairs, get the homographies with respect to the central image
+8. Project all images (using inverse warping) on to a blank canvas. Use bilinear interpolation
+
+## Dependencies
+OpenCV
+NumPy
+
 ## How to Run 
 
-The code contained in mosaics.py takes in 2 images and a set of corresponding points and warps the second image onto the reference image by computing a homography matrix for the set of matched points. 
+Run the utility from the command line, as follows:
 
-## Examples
+```bash 
+python mosaic.py -p <image> -t <tiles directory>
+``` 
+The image argument should contain the path to the image for which you want to build the mosaic
+The tiles directory argument should contain the path to the directory containing the tile images (the directory will be searched recursively, so it doesn't matter if some of the images are contained in sub-directories)
 
-This repository already contains the point file for images in the ./examples/2/ and ./examples/3/ directory.
+For example:
+
+```bash
+python mosaic.py game_of_thrones_poster.jpg /home/admin/images/screenshots
+```
 
 ## Image Mosaic Examples
 
