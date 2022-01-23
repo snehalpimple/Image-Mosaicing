@@ -13,6 +13,10 @@ Click pictures such that adjacent pictures have atleast 40% overlap. Order the p
 7. After obtaining Homographies for each of the picture pairs, get the homographies with respect to the central image
 8. Project all images (using inverse warping) on to a blank canvas. Use bilinear interpolation
 
+```
+![](flowchart.png)
+```
+
 ## Dependencies
 OpenCV
 NumPy
