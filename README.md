@@ -14,7 +14,7 @@ Click pictures such that adjacent pictures have atleast 40% overlap. Order the p
 8. Project all images (using inverse warping) on to a blank canvas. Use bilinear interpolation
 
 ```
-<img src=”https://github.com/snehalpimple/Image-Mosaicing/blob/main/flowchart.png” width=”50">
+<![](flowchart.png)
 ```
 
 ## Dependencies
